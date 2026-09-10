@@ -440,7 +440,7 @@ let titanX = 1450;
 
 
 // Velocidades
-const velocidadDemo = 1;
+const velocidadDemo = 0.9;
 const velocidadGengar = 3;
 const velocidadTitan = 0.3;
 
@@ -459,7 +459,7 @@ const titanY = 810;
 
 // Límites de movimiento
 const demoMinX = 60;
-const demoMaxX = 220;
+const demoMaxX = 230;
 
 const gengarMinX = 850;
 const gengarMaxX = 1350;
