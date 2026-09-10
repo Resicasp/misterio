@@ -440,7 +440,7 @@ let titanX = 1450;
 
 
 // Velocidades
-const velocidadDemo = 0.9;
+const velocidadDemo = 0.7;
 const velocidadGengar = 3;
 const velocidadTitan = 0.3;
 
