@@ -153,6 +153,148 @@ function comprobarCofre() {
     }
 }
 
+// =====================================
+// MOVER ENEMIGOS
+// =====================================
+
+function moverEnemigos() {
+
+    // -------------------------------
+    // DEMO
+    // -------------------------------
+
+    demoX += velocidadDemo * direccionDemo;
+
+    if (demoX >= demoMaxX) {
+        demoX = demoMaxX;
+        direccionDemo = -1;
+    }
+
+    if (demoX <= demoMinX) {
+        demoX = demoMinX;
+        direccionDemo = 1;
+    }
+
+
+    // -------------------------------
+    // GENGAR
+    // -------------------------------
+
+    gengarX += velocidadGengar * direccionGengar;
+
+    if (gengarX >= gengarMaxX) {
+        gengarX = gengarMaxX;
+        direccionGengar = -1;
+    }
+
+    if (gengarX <= gengarMinX) {
+        gengarX = gengarMinX;
+        direccionGengar = 1;
+    }
+
+
+    // -------------------------------
+    // TITÁN
+    // -------------------------------
+
+    titanX += velocidadTitan * direccionTitan;
+
+    if (titanX >= titanMaxX) {
+        titanX = titanMaxX;
+        direccionTitan = -1;
+    }
+
+    if (titanX <= titanMinX) {
+        titanX = titanMinX;
+        direccionTitan = 1;
+    }
+
+
+    // Actualizar posiciones
+
+    enemigoDemo.style.left = demoX + "px";
+    enemigoDemo.style.top = demoY + "px";
+
+    enemigoGengar.style.left = gengarX + "px";
+    enemigoGengar.style.top = gengarY + "px";
+
+    enemigoTitan.style.left = titanX + "px";
+    enemigoTitan.style.top = titanY + "px";
+
+    // Comprobar si algún enemigo nos ha tocado
+    comprobarEnemigos();
+
+    requestAnimationFrame(moverEnemigos);
+}
+
+// =====================================
+// COMPROBAR COLISIÓN CON ENEMIGOS
+// =====================================
+
+function comprobarEnemigos() {
+
+    const personaje = {
+        left: x,
+        right: x + anchoPersonaje,
+        top: y,
+        bottom: y + altoPersonaje
+    };
+
+
+    function tocaEnemigo(enemigo) {
+
+        const enemigoRect = {
+            left: enemigo.offsetLeft,
+            right: enemigo.offsetLeft + enemigo.offsetWidth,
+            top: enemigo.offsetTop,
+            bottom: enemigo.offsetTop + enemigo.offsetHeight
+        };
+
+        return (
+            personaje.right > enemigoRect.left &&
+            personaje.left < enemigoRect.right &&
+            personaje.bottom > enemigoRect.top &&
+            personaje.top < enemigoRect.bottom
+        );
+    }
+
+
+    if (
+        tocaEnemigo(enemigoDemo) ||
+        tocaEnemigo(enemigoGengar) ||
+        tocaEnemigo(enemigoTitan)
+    ) {
+
+        // Volver al inicio
+        x = 50;
+        y = 50;
+
+        // Reiniciar cámara
+        camaraX = 0;
+        camaraY = 0;
+
+        // Mirando hacia abajo
+        personajes.src = "personajes/abajo.png";
+
+        // Actualizar posición
+        personajes.style.left = x + "px";
+        personajes.style.top = y + "px";
+
+        // Actualizar cámara
+        mapa.style.left = "0px";
+        mapa.style.top = "0px";
+
+        // La llave vuelve a aparecer
+        tieneLlave = false;
+        llave.style.display = "block";
+
+        // El cofre vuelve a estar disponible
+        cofreAbierto = false;
+        cofre.style.display = "block";
+
+        alert("💥 ¡Cuidado! Habéis chocado con un enemigo.");
+    }
+}
 
 // =====================================
 // MOVIMIENTO
@@ -281,3 +423,53 @@ cerrarFinal.addEventListener("click", () => {
     pantallaFinal.style.display = "none";
 
 });
+
+// =====================================
+// ENEMIGOS
+// =====================================
+
+const enemigoDemo = document.getElementById("enemigoDemo");
+const enemigoGengar = document.getElementById("enemigoGengar");
+const enemigoTitan = document.getElementById("enemigoTitan");
+
+
+// Posiciones
+let demoX = 220;
+let gengarX = 1000;
+let titanX = 1450;
+
+
+// Velocidades
+const velocidadDemo = 1;
+const velocidadGengar = 3;
+const velocidadTitan = 0.3;
+
+
+// Dirección
+let direccionDemo = 1;
+let direccionGengar = 1;
+let direccionTitan = 1;
+
+
+// Posiciones verticales
+const demoY = 900;
+const gengarY = 340;
+const titanY = 810;
+
+
+// Límites de movimiento
+const demoMinX = 60;
+const demoMaxX = 220;
+
+const gengarMinX = 850;
+const gengarMaxX = 1350;
+
+const titanMinX = 1280;
+const titanMaxX = 1480;
+
+
+// =====================================
+// INICIAR ENEMIGOS
+// =====================================
+
+moverEnemigos();
