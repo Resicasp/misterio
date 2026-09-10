@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Laberinto ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Nuestro Laberinto ❤️</h1>
+
+    <div id="game">
+
+        <div id="mapa">
+
+            <!-- ========================= -->
+            <!-- PAREDES EXTERIORES -->
+            <!-- ========================= -->
+
+            <div class="pared" style="left:0; top:0; width:1600px; height:30px;"></div>
+            <div class="pared" style="left:0; top:1170px; width:1600px; height:30px;"></div>
+            <div class="pared" style="left:0; top:0; width:30px; height:1200px;"></div>
+            <div class="pared" style="left:1570px; top:0; width:30px; height:1200px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA SUPERIOR IZQUIERDA -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:300px; top:30px; width:40px; height:220px;"></div>
+
+            <div class="pared"
+                 style="left:300px; top:250px; width:380px; height:40px;"></div>
+
+            <div class="pared"
+                 style="left:640px; top:30px; width:40px; height:220px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA SUPERIOR CENTRAL -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:850px; top:30px; width:40px; height:250px;"></div>
+
+            <div class="pared"
+                 style="left:850px; top:280px; width:350px; height:40px;"></div>
+
+           
+            <!-- ========================= -->
+            <!-- ZONA SUPERIOR DERECHA -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:1370px; top:30px; width:40px; height:250px;"></div>
+
+            <div class="pared"
+                 style="left:1370px; top:280px; width:160px; height:40px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA CENTRAL IZQUIERDA -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:200px; top:420px; width:390px; height:40px;"></div>
+
+            <div class="pared"
+                 style="left:200px; top:460px; width:40px; height:280px;"></div>
+
+            <div class="pared"
+                 style="left:550px; top:460px; width:40px; height:180px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA CENTRAL -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:750px; top:400px; width:40px; height:300px;"></div>
+
+            <div class="pared"
+                 style="left:770px; top:660px; width:400px; height:40px;"></div>
+
+            <div class="pared"
+                 style="left:1170px; top:430px; width:40px; height:270px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA DERECHA - LLAVE -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:1370px; top:430px; width:40px; height:250px;"></div>
+
+            <div class="pared"
+                 style="left:1210px; top:430px; width:200px; height:40px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA INFERIOR IZQUIERDA -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:300px; top:800px; width:40px; height:250px;"></div>
+
+            <div class="pared"
+                 style="left:300px; top:1050px; width:390px; height:40px;"></div>
+
+            <div class="pared"
+                 style="left:650px; top:810px; width:40px; height:250px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- ZONA INFERIOR CENTRAL -->
+            <!-- ========================= -->
+
+            <div class="pared"
+                 style="left:850px; top:810px; width:40px; height:240px;"></div>
+
+            <div class="pared"
+                 style="left:850px; top:1010px; width:390px; height:40px;"></div>
+
+            <div class="pared"
+                 style="left:1240px; top:790px; width:40px; height:250px;"></div>
+
+
+            <!-- ========================= -->
+            <!-- PERSONAJES -->
+            <!-- ========================= -->
+
+            <img
+                id="personajes"
+                src="personajes/abajo.png"
+                alt="Tú y Valeria"
+            >
+
+            <!-- LLAVE -->
+            <img
+                id="llave"
+                src="personajes/llave.png"
+                alt="Llave"
+                style="
+                    position: absolute;
+                    left: 910px;
+                    top: 100px;
+                    width: 50px;
+                    height: 50px;
+                    image-rendering: pixelated;
+                "
+            >
+
+            <!-- COFRE -->
+            <img
+                id="cofre"
+                src="personajes/cofre.png"
+                alt="Cofre"
+                style="
+                    position: absolute;
+                    left: 125px;
+                    top: 1075px;
+                    width: 50px;
+                    height: 50px;
+                    image-rendering: pixelated;
+                "
+            >
+
+
+        </div>
+
+    </div>
+
+        <!-- PANTALLA FINAL -->
+    <div id="pantallaFinal">
+
+        <div id="contenidoFinal">
+
+            
+            <div id="imagenFinal">
+                <img src="personajes/final.png" alt="Nosotros">
+            </div>
+
+            <h2>Has llegado hasta el final ❤️</h2>
+
+            <p>
+                Todo este laberinto tenía un único destino...
+            </p>
+
+            <p>
+                Y era llegar hasta aquí contigo.
+            </p>
+
+            <button id="cerrarFinal">
+                Volver al laberinto
+            </button>
+
+        </div>
+
+    </div>
+
+    <p>Usa las flechas del teclado para moveros.</p>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
