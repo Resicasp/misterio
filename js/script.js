@@ -302,42 +302,50 @@ function comprobarEnemigos() {
 
 document.addEventListener("keydown", (event) => {
     if (
-        event.key === "ArrowUp" ||
-        event.key === "ArrowDown" ||
-        event.key === "ArrowLeft" ||
-        event.key === "ArrowRight"
-    ) {
-        event.preventDefault();
-    }
+    event.key === "ArrowUp" ||
+    event.key === "ArrowDown" ||
+    event.key === "ArrowLeft" ||
+    event.key === "ArrowRight" ||
+    event.key.toLowerCase() === "w" ||
+    event.key.toLowerCase() === "a" ||
+    event.key.toLowerCase() === "s" ||
+    event.key.toLowerCase() === "d"
+) {
+    event.preventDefault();
+}
 
     let nuevoX = x;
     let nuevoY = y;
 
-    switch (event.key) {
+   switch (event.key.toLowerCase()) {
 
-        case "ArrowUp":
-            nuevoY -= velocidad;
-            personajes.src = "personajes/arriba.png";
-            break;
+    case "arrowup":
+    case "w":
+        nuevoY -= velocidad;
+        personajes.src = "personajes/arriba.png";
+        break;
 
-        case "ArrowDown":
-            nuevoY += velocidad;
-            personajes.src = "personajes/abajo.png";
-            break;
+    case "arrowdown":
+    case "s":
+        nuevoY += velocidad;
+        personajes.src = "personajes/abajo.png";
+        break;
 
-        case "ArrowLeft":
-            nuevoX -= velocidad;
-            personajes.src = "personajes/izquierda.png";
-            break;
+    case "arrowleft":
+    case "a":
+        nuevoX -= velocidad;
+        personajes.src = "personajes/izquierda.png";
+        break;
 
-        case "ArrowRight":
-            nuevoX += velocidad;
-            personajes.src = "personajes/derecha.png";
-            break;
+    case "arrowright":
+    case "d":
+        nuevoX += velocidad;
+        personajes.src = "personajes/derecha.png";
+        break;
 
-        default:
-            return;
-    }
+    default:
+        return;
+}
 
 
     // =================================
