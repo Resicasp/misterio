@@ -301,6 +301,14 @@ function comprobarEnemigos() {
 // =====================================
 
 document.addEventListener("keydown", (event) => {
+    if (
+        event.key === "ArrowUp" ||
+        event.key === "ArrowDown" ||
+        event.key === "ArrowLeft" ||
+        event.key === "ArrowRight"
+    ) {
+        event.preventDefault();
+    }
 
     let nuevoX = x;
     let nuevoY = y;
@@ -473,3 +481,40 @@ const titanMaxX = 1480;
 // =====================================
 
 moverEnemigos();
+
+
+// =====================================
+// MÚSICA
+// =====================================
+
+const musica = document.getElementById("musica");
+const botonMusica = document.getElementById("botonMusica");
+const volumenMusica = document.getElementById("volumenMusica");
+
+// Volumen inicial al 30%
+musica.volume = 0.3;
+
+
+// Reproducir o pausar música
+botonMusica.addEventListener("click", () => {
+
+    if (musica.paused) {
+
+        musica.play();
+
+        botonMusica.textContent = "⏸️ Pausar música";
+
+    } else {
+
+        musica.pause();
+
+        botonMusica.textContent = "▶️ Poner Música";
+    }
+});
+
+
+// Subir o bajar volumen
+volumenMusica.addEventListener("input", () => {
+
+    musica.volume = volumenMusica.value;
+});
