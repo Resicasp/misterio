@@ -116,3 +116,56 @@ p {
 #cerrarFinal:hover {
     opacity: 0.8;
 }
+
+
+/* =====================================
+   CONTROLES DE MÚSICA
+===================================== */
+
+#controlesMusica {
+    position: fixed;
+    top: 300px;
+    right: 30px;
+    width: 180px;
+    padding: 18px;
+    background: rgba(30, 30, 30, 0.9);
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    z-index: 2000;
+    box-sizing: border-box;
+}
+
+#controlesMusica div {
+    margin-bottom: 12px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#botonMusica {
+    width: 100%;
+    padding: 9px 8px;
+    border: none;
+    border-radius: 8px;
+    background: #555;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#botonMusica:hover {
+    background: #666;
+}
+
+#controlesMusica label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+#volumenMusica {
+    width: 100%;
+    cursor: pointer;
+}

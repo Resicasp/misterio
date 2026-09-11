@@ -11,6 +11,30 @@
 
     <h1>Nuestro Laberinto ❤️</h1>
 
+          <!-- MÚSICA -->
+               <div id="controlesMusica">
+
+               <div>🎵 Música</div>
+
+               <button id="botonMusica">▶️ Poner Música</button>
+
+               <label for="volumenMusica">🔊 Volumen</label>
+
+               <input
+                    id="volumenMusica"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.3"
+               >
+
+               </div>
+
+          <audio id="musica" loop>
+          <source src="musica/musica.mp3" type="audio/mpeg">
+          </audio>
+
     <div id="game">
 
         <div id="mapa">
@@ -253,8 +277,9 @@
     <p>🎮 Usa las flechas del teclado para moveros.🎮</p> 
     <p>🗺️ El mapa se desplazará cuando llegués al límite de la pantalla.🗺️</p> 
     <p>🗝️ Encuentra primero la llave y después ve hasta el cofre.🗝️</p> 
+     <p>💥Los enemigos resetean la partida. Ten cuidado con la hitbox💥</p>
     <p>❤️ ¿Serás capaces de llegar hasta el final?❤️</p>
-    <p>💥Los enemigos resetean la partida💥</p>
+
 
     <script src="js/script.js"></script>
 
